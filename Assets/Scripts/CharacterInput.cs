@@ -20,6 +20,7 @@ public class CharacterInput : MonoBehaviour
     {
         public float  horizontal;
         public bool   jump;
+        public bool dash;
     }
 
 //    static InputSet[] _inputSets =
@@ -43,13 +44,15 @@ public class CharacterInput : MonoBehaviour
             return new InputState() {
                 horizontal = 0f,
                 jump = false,
+                dash = false,
             };
         }
         return new InputState()
         {
             horizontal = rePlayer.GetAxis("Move Horizontal"),
-            jump = rePlayer.GetButton("Jump")
-        };   
+            jump = rePlayer.GetButton("Jump"),
+            dash = rePlayer.GetButton("Dash"),
+        };
     }
 
     float GetAxis(KeyCode neg, KeyCode pos)

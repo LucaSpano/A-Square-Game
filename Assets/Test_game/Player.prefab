@@ -372,6 +372,7 @@ MonoBehaviour:
   _speed: 7
   _jumpStartVel: 13
   _jumpBoostAccel: 24
+  _dashVel: 17
 --- !u!114 &114626602012042300
 MonoBehaviour:
   m_ObjectHideFlags: 1

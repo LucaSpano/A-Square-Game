@@ -8,11 +8,12 @@ public class CharacterMovement : MonoBehaviour
 	[SerializeField] float _speed;
 	[SerializeField] float _jumpStartVel = 8f;
 	[SerializeField] float _jumpBoostAccel = 1f;
+	[SerializeField] float _dashVel = 12f;
 	
 	CharacterInput _inputs;
 	Rigidbody2D _rigidBody;
 
-	bool _lastJumpInput = false;
+	CharacterInput.InputState _lastInputs = new CharacterInput.InputState();
 
 	float _lastGroundTime = 0.0f;
 	float _coyoteTime = 0.2f;
@@ -38,17 +39,23 @@ public class CharacterMovement : MonoBehaviour
 		currentVel.x = inputs.horizontal * _speed;
 
 		if (inputs.jump) {
-			if (!_lastJumpInput && Time.time - _lastGroundTime < _coyoteTime) {
+			if (!_lastInputs.jump && Time.time - _lastGroundTime < _coyoteTime) {
 				currentVel.y = _jumpStartVel;
 			}
 			
 			currentVel.y += _jumpBoostAccel * Time.deltaTime;
 		}
 
-		_lastJumpInput = inputs.jump;
+		if (inputs.dash && !_lastInputs.dash) {
+			currentVel.x = 0f;
+			currentVel.y = -_dashVel;
+		}
+		
+
+		_lastInputs = inputs;
 
 		_rigidBody.velocity = currentVel;
-
+		
 		var pos = transform.position;
 		if (transform.position.y < -5f) {
 			pos.y = 5.2f;
