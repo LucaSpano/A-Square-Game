@@ -40,6 +40,14 @@ public class CharacterMovement : MonoBehaviour
 		if (transform.position.y > 5.3f) {
 			pos.y = -4.9f;
 		}
+		
+		if (transform.position.x < -10.05f) {
+			pos.x = 10f;
+		}
+		
+		if (transform.position.x > 10.05f) {
+			pos.x = -10f;
+		}
 
 		transform.position = pos;
 	}
