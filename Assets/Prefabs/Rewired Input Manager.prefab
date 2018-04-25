@@ -179,12 +179,30 @@ MonoBehaviour:
         _layoutId: 0
       _defaultMouseMaps: []
       _defaultKeyboardMaps:
+      - _enabled: 0
+        _categoryId: 0
+        _layoutId: 0
+      _defaultCustomControllerMaps: []
+      _startingCustomControllers: []
+      _assignMouseOnStart: 0
+      _assignKeyboardOnStart: 1
+      _excludeFromControllerAutoAssignment: 0
+    - _id: 5
+      _name: Player1
+      _descriptiveName: Player1
+      _startPlaying: 1
+      _defaultJoystickMaps:
+      - _enabled: 0
+        _categoryId: 0
+        _layoutId: 0
+      _defaultMouseMaps: []
+      _defaultKeyboardMaps:
       - _enabled: 1
         _categoryId: 0
         _layoutId: 0
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
-      _assignMouseOnStart: 1
+      _assignMouseOnStart: 0
       _assignKeyboardOnStart: 1
       _excludeFromControllerAutoAssignment: 0
     actions:
@@ -338,7 +356,7 @@ MonoBehaviour:
     mouseMaps: []
     customControllerMaps: []
     customControllers: []
-    playerIdCounter: 5
+    playerIdCounter: 6
     actionIdCounter: 2
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1

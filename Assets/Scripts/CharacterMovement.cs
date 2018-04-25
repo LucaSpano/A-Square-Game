@@ -1,13 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
 	[SerializeField] float _speed;
+	[SerializeField] float _jumpStartVel = 8f;
+	[SerializeField] float _jumpBoostAccel = 1f;
 	
 	CharacterInput _inputs;
 	Rigidbody2D _rigidBody;
+
+	bool _lastJumpInput = false;
+
+	float _lastGroundTime = 0.0f;
+	float _coyoteTime = 0.2f;
 
 	const float _teleportWidth = 9.5f;
 	const float _teleportMargin = 0.05f;
@@ -30,8 +38,14 @@ public class CharacterMovement : MonoBehaviour
 		currentVel.x = inputs.horizontal * _speed;
 
 		if (inputs.jump) {
-			currentVel.y = 10f;
+			if (!_lastJumpInput && Time.time - _lastGroundTime < _coyoteTime) {
+				currentVel.y = _jumpStartVel;
+			}
+			
+			currentVel.y += _jumpBoostAccel * Time.deltaTime;
 		}
+
+		_lastJumpInput = inputs.jump;
 
 		_rigidBody.velocity = currentVel;
 
@@ -53,5 +67,10 @@ public class CharacterMovement : MonoBehaviour
 		}
 
 		transform.position = pos;
+	}
+
+	void OnCollisionStay2D()
+	{
+		_lastGroundTime = Time.time;
 	}
 }
