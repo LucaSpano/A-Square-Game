@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 105830703}
   - component: {fileID: 105830702}
   m_Layer: 0
-  m_Name: _0011_Calque-17
+  m_Name: hills2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1352,7 +1352,7 @@ GameObject:
   - component: {fileID: 855039966}
   - component: {fileID: 855039965}
   m_Layer: 0
-  m_Name: _0012_Calque-16
+  m_Name: hills1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
