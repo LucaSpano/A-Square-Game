@@ -510,7 +510,8 @@ Prefab:
       propertyPath: _colors.Array.data[3].b
       value: 0.16470589
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 58278514542063590, guid: fff82b0233c9a467d9d5e881e221358b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fff82b0233c9a467d9d5e881e221358b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &105830701
@@ -580,7 +581,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 105830701}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.34452045, y: -1.7794862, z: 0}
+  m_LocalPosition: {x: 0, y: -1.7794862, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -779,7 +780,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 159242761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.34, y: -0.08, z: -0.57}
+  m_LocalPosition: {x: 0, y: -0.08, z: -0.57}
   m_LocalScale: {x: 1, y: 1, z: 25.52}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1409,7 +1410,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 855039964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3445207, y: -2.573625, z: 0.5}
+  m_LocalPosition: {x: 0, y: -2.573625, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1934,6 +1935,36 @@ PolygonCollider2D:
       - {x: 0.205, y: -0.295}
       - {x: 0.225, y: -0.265}
       - {x: 0.225, y: -0.175}
+--- !u!1 &1499202393 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1045273435261538, guid: fff82b0233c9a467d9d5e881e221358b,
+    type: 2}
+  m_PrefabInternal: {fileID: 93389156}
+--- !u!61 &1499202394
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1499202393}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0.13
 --- !u!1 &1632998237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,7 +2163,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2076725510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3445207, y: -0.07775921, z: 1.4}
+  m_LocalPosition: {x: 0, y: -0.07775921, z: 1.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

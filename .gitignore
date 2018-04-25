@@ -32,3 +32,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+.idea/.idea.A-square-game/.idea/contentModel.xml
+.idea/.idea.A-square-game/.idea/indexLayout.xml
+.idea/.idea.A-square-game/.idea/modules.xml
+.idea/.idea.A-square-game/.idea/vcs.xml
+.idea/.idea.A-square-game/.idea/workspace.xml
+.idea/.idea.A-square-game/riderModule.iml
