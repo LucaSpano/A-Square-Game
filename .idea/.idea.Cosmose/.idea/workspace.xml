@@ -1405,28 +1405,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="InputPlayerAssignation.cs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/InputPlayerAssignation.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="30" column="41" lean-forward="true" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-              <folding>
-                <marker date="1524954408139" expanded="true" signature="6:126" ph="..." />
-                <marker date="1524954408139" expanded="true" signature="179:1151" ph="{...}" />
-                <marker date="1524954408139" expanded="true" signature="195:298" ph="{...}" />
-                <marker date="1524954408139" expanded="true" signature="366:736" ph="{...}" />
-                <marker date="1524954408139" expanded="true" signature="569:696" ph="{...}" />
-                <marker date="1524954408139" expanded="true" signature="776:1149" ph="{...}" />
-                <marker date="1524954408139" expanded="true" signature="857:1146" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -1556,31 +1534,5 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/InputManagement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/InputPlayerAssignation.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" column="41" lean-forward="true" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-          <folding>
-            <marker date="1524954408139" expanded="true" signature="6:126" ph="..." />
-            <marker date="1524954408139" expanded="true" signature="179:1151" ph="{...}" />
-            <marker date="1524954408139" expanded="true" signature="195:298" ph="{...}" />
-            <marker date="1524954408139" expanded="true" signature="366:736" ph="{...}" />
-            <marker date="1524954408139" expanded="true" signature="569:696" ph="{...}" />
-            <marker date="1524954408139" expanded="true" signature="776:1149" ph="{...}" />
-            <marker date="1524954408139" expanded="true" signature="857:1146" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
