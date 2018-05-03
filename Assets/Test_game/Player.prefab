@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46245bb15d4b4e918a872b4161c70eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 7
   _jumpStartVel: 13
   _jumpBoostAccel: 24
   _dashVel: 17
@@ -499,7 +499,7 @@ MonoBehaviour:
   Characters: []
   _horizontalAnimSpeed: 18
   _jellyBend: 1
-  _scaleUpFactor: 0.5
+  _scaleUpFactor: 0.6
   SpeedDown: 0.09
 --- !u!212 &212031160300921852
 SpriteRenderer:
