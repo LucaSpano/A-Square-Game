@@ -66,12 +66,12 @@ public class CharacterMovement : MonoBehaviour
 		_rigidBody.velocity = currentVel;
 		
 		var pos = transform.position;
-		if (transform.position.y < -5f) {
-			pos.y = 5.2f;
+		if (transform.position.y < -5.4f) {
+			pos.y = 5.1f;
 		}
 		
-		if (transform.position.y > 5.3f) {
-			pos.y = -4.9f;
+		if (transform.position.y > 5.2f) {
+			pos.y = -5.3f;
 		}
 		
 		if (transform.position.x < -_teleportWidth) {
