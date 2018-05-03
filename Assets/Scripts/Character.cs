@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Character : MonoBehaviour
 {
@@ -45,6 +46,11 @@ public class Character : MonoBehaviour
 		Characters.Add(charater);
 		
 		UpdateGraphics();
+
+		if (Characters.Count >= 4) {
+			StopAllCoroutines();
+			StartCoroutine(WaitAndBoom(10f));
+		}
 	}
 
 	public void Boom()
@@ -179,5 +185,11 @@ public class Character : MonoBehaviour
 				character.Boom();
 			}
 		}
+	}
+	
+	IEnumerator WaitAndBoom(float f)
+	{
+		yield return new WaitForSeconds(f);
+		Boom();
 	}
 }
