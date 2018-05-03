@@ -681,6 +681,7 @@ GameObject:
   m_Component:
   - component: {fileID: 599942676}
   - component: {fileID: 599942675}
+  - component: {fileID: 599942677}
   m_Layer: 0
   m_Name: logo_Plan de travail 1
   m_TagString: Untagged
@@ -745,6 +746,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &599942677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599942674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857dd2d17b645454386692082579f94e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &603486105
 GameObject:
   m_ObjectHideFlags: 0
