@@ -37,9 +37,7 @@ public class Character : MonoBehaviour
 	}
 	
 	public void Add(Character charater)
-	{
-		SoundManager.instance.Play(_implodeSound, transform.position);
-		
+	{		
 		if (Characters.Contains(charater)) {
 			Debug.LogError("Player " + charater.PrimaryCharacterIndex + "already contained in character " + name);
 		}
@@ -173,6 +171,7 @@ public class Character : MonoBehaviour
 		
 		if (character && other.relativeVelocity.y > 0f && !IsInvincible() && !character.IsInvincible()) {
 			if (character.Characters.Count == 1) {
+				SoundManager.instance.Play(_implodeSound, transform.position);
 				Add(character);
 				character.gameObject.SetActive(false);
 			}

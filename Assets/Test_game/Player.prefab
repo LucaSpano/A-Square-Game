@@ -457,10 +457,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46245bb15d4b4e918a872b4161c70eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 7
   _jumpStartVel: 13
   _jumpBoostAccel: 24
   _dashVel: 17
+  _accel: 400000
   _jumpSound: {fileID: 8300000, guid: 24804dabebe554af0b8710527d62d261, type: 3}
   _landingSound: {fileID: 8300000, guid: 655e9210363c54e29834fbb1c43ce846, type: 3}
 --- !u!114 &114626602012042300
@@ -499,7 +500,7 @@ MonoBehaviour:
   Characters: []
   _horizontalAnimSpeed: 18
   _jellyBend: 1
-  _scaleUpFactor: 0.5
+  _scaleUpFactor: 0.6
   SpeedDown: 0.09
 --- !u!212 &212031160300921852
 SpriteRenderer:
