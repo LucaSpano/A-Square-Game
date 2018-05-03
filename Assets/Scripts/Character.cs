@@ -38,7 +38,6 @@ public class Character : MonoBehaviour
 	
 	public void Add(Character charater)
 	{
-		Debug.Log("Implode ?");
 		SoundManager.instance.Play(_implodeSound, transform.position);
 		
 		if (Characters.Contains(charater)) {
@@ -52,7 +51,6 @@ public class Character : MonoBehaviour
 
 	public void Boom()
 	{
-		Debug.Log("Explode");
 		SoundManager.instance.Play(_explodeSound, transform.position);
 		var chars = Characters.ToArray();
 		var pos = transform.position;
@@ -63,7 +61,8 @@ public class Character : MonoBehaviour
 			var offset = (rot * Vector3.left * 0.2f);
 			character.transform.position = pos + offset;
 			
-			character.GetComponent<Rigidbody2D>().AddForce(offset * 50f + Vector3.up * 5f, ForceMode2D.Impulse);
+			character.gameObject.SetActive(true);
+			character.GetComponent<Rigidbody2D>().AddForce(offset * 100f + Vector3.up * 5f, ForceMode2D.Impulse);
 
 			character.TriggerInvincibilityFrame();
 			
@@ -71,7 +70,6 @@ public class Character : MonoBehaviour
 				continue;
 			}
 
-			character.gameObject.SetActive(true);
 			character.UpdateGraphics();
 			Characters.Remove(character);
 		}
