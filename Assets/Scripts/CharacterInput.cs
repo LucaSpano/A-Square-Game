@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class CharacterInput : MonoBehaviour
 {
-    public int inputSetIndex; 
+//    public int inputSetIndex; 
     
     public class InputSet
     {
@@ -32,6 +32,8 @@ public class CharacterInput : MonoBehaviour
     
     public InputState PoolInputs()
     {
+        var inputSetIndex = GetComponent<Character>().PrimaryCharacterIndex;
+        
         Player rePlayer;
         if (ReInput.players.GetPlayerIds().Contains(inputSetIndex)) {
             rePlayer = ReInput.players.GetPlayer(inputSetIndex);

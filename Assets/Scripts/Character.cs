@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 
 public class Character : MonoBehaviour
-{
+{	
 	public int PrimaryCharacterIndex = 0;
 	public bool freeFall;
 	
@@ -66,15 +66,12 @@ public class Character : MonoBehaviour
 	
 	void UpdateGraphics()
 	{
-		for (int i = 0; i < 3; i++) {
-			var groupActive = i + 1 == _characters.Count;
+		for (int i = 0; i < _sliceGroups.Length; i++) {
+			var groupActive = i < _characters.Count;
 			var group = _sliceGroups[i];
 			group.SetActive(groupActive);
 			if (groupActive) {
-				for (int sliceIndex = 0; sliceIndex < group.transform.childCount; sliceIndex++) {
-					var slice = group.transform.GetChild(sliceIndex);
-					slice.GetComponent<SpriteRenderer>().color = ColorForPlayerIndex(_characters[sliceIndex].PrimaryCharacterIndex);
-				}
+				group.GetComponent<SpriteRenderer>().color = ColorForPlayerIndex(_characters[i].PrimaryCharacterIndex);
 			}
 		}
 	}
