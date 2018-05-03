@@ -10,6 +10,7 @@ public class CharacterMovement : MonoBehaviour
 	[SerializeField] float _jumpStartVel = 8f;
 	[SerializeField] float _jumpBoostAccel = 1f;
 	[SerializeField] float _dashVel = 12f;
+	[SerializeField] float _accel = 20f;
 
 	[SerializeField] AudioClip _jumpSound;
 	[SerializeField] AudioClip _landingSound;
@@ -43,7 +44,7 @@ public class CharacterMovement : MonoBehaviour
 		
 		var currentVel = _rigidBody.velocity;
 		var slowDownFac = (1f - (_character.Characters.Count - 1f) * _character.SpeedDown);
-		currentVel.x = inputs.horizontal * _speed * slowDownFac;
+		currentVel.x = Mathf.MoveTowards(currentVel.x, inputs.horizontal * _speed * slowDownFac, Time.deltaTime * _accel);
 
 		if (inputs.jump) {
 			if (!_lastInputs.jump && Time.time - _lastGroundTime < _coyoteTime) {
