@@ -16,7 +16,7 @@ public class Character : MonoBehaviour
 
 	[SerializeField] Sprite[] _walkingSprites;
 	
-	List<Character> _characters = new List<Character>();
+	public List<Character> Characters = new List<Character>();
 	float _invincibilityStart;
 
 	SpriteRenderer[] _walkingRenderers = new SpriteRenderer[4];
@@ -26,9 +26,13 @@ public class Character : MonoBehaviour
 	float _currentWalkBend = 0f;
 	[SerializeField] float _horizontalAnimSpeed;
 	[SerializeField] bool _jellyBend;
+	[SerializeField] float _scaleUpFactor = 1.2f;
+	Vector3 _startScale;
+	[SerializeField] public float SpeedDown = 1f;
 
 	void Awake()
 	{
+		_startScale = transform.localScale;
 		_inputs = GetComponent<CharacterInput>();
 	}
 	
@@ -37,11 +41,11 @@ public class Character : MonoBehaviour
 		Debug.Log("Implode ?");
 		SoundManager.instance.Play(_implodeSound, transform.position);
 		
-		if (_characters.Contains(charater)) {
+		if (Characters.Contains(charater)) {
 			Debug.LogError("Player " + charater.PrimaryCharacterIndex + "already contained in character " + name);
 		}
 				
-		_characters.Add(charater);
+		Characters.Add(charater);
 		
 		UpdateGraphics();
 	}
@@ -50,7 +54,7 @@ public class Character : MonoBehaviour
 	{
 		Debug.Log("Explode");
 		SoundManager.instance.Play(_explodeSound, transform.position);
-		var chars = _characters.ToArray();
+		var chars = Characters.ToArray();
 		var pos = transform.position;
 		for (var index = 0; index < chars.Length; index++) {
 			var character = chars[index];
@@ -69,7 +73,7 @@ public class Character : MonoBehaviour
 
 			character.gameObject.SetActive(true);
 			character.UpdateGraphics();
-			_characters.Remove(character);
+			Characters.Remove(character);
 		}
 
 		UpdateGraphics();
@@ -82,16 +86,18 @@ public class Character : MonoBehaviour
 	
 	void UpdateGraphics()
 	{
+		UpdateScale();
+		
 		for (int i = 0; i < _sliceGroups.Length; i++) {
-			var groupActive = i < _characters.Count;
+			var groupActive = i < Characters.Count;
 			var group = _sliceGroups[i];
 			group.SetActive(groupActive);
 			if (groupActive) {
 				for (int sliceIndex = 0; sliceIndex < 2; sliceIndex++) {
 					var slice = group.transform.GetChild(sliceIndex);
 					var spriteRenderer = slice.GetComponent<SpriteRenderer>();
-					spriteRenderer.color = ColorForPlayerIndex(_characters[i].PrimaryCharacterIndex);
-					spriteRenderer.sortingOrder = sliceIndex;
+					spriteRenderer.color = ColorForPlayerIndex(Characters[i].PrimaryCharacterIndex);
+					spriteRenderer.sortingOrder = i;
 					if (sliceIndex == 0) {
 						_walkingRenderers[i] = spriteRenderer;
 					}
@@ -103,11 +109,16 @@ public class Character : MonoBehaviour
 		}
 	}
 
+	void UpdateScale()
+	{
+		transform.localScale = _startScale * (1f + (Characters.Count - 1) * _scaleUpFactor);
+	}
+
 	void Update()
 	{
 		var inputs = _inputs.PoolInputs();
 		_currentWalkBend = Mathf.MoveTowards(_currentWalkBend, inputs.horizontal, Time.deltaTime * _horizontalAnimSpeed);
-		UpdateWalk(_currentWalkBend);
+		UpdateWalk(Mathf.Sin(Time.time * 20f) * 0.2f + _currentWalkBend * 0.5f);
 	}
 	
 	void UpdateAnimState(bool walking)
@@ -163,7 +174,7 @@ public class Character : MonoBehaviour
 		var character = other.gameObject.GetComponent<Character>();
 		
 		if (character && other.relativeVelocity.y > 0f && !IsInvincible() && !character.IsInvincible()) {
-			if (character._characters.Count == 1) {
+			if (character.Characters.Count == 1) {
 				Add(character);
 				character.gameObject.SetActive(false);
 			}

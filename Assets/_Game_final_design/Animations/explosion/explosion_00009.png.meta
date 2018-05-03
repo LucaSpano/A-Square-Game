@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 4549b090d7b6342cd88b8166ba596e09
+timeCreated: 1525358110
+licenseType: Pro
+=======
 guid: be4ecf52dc9f04c34b0a2e6b35f8b091
 timeCreated: 1525358271
 licenseType: Free
+>>>>>>> master
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}

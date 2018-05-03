@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class CharacterMovement : MonoBehaviour
 
 	float _lastGroundTime = 0.0f;
 	float _coyoteTime = 0.2f;
+	Character _character;
 
 	const float _teleportWidth = 9.5f;
 	const float _teleportMargin = 0.05f;
@@ -28,6 +30,7 @@ public class CharacterMovement : MonoBehaviour
 	{
 		_inputs = GetComponent<CharacterInput>();
 		_rigidBody = GetComponent<Rigidbody2D>();
+		_character = GetComponent<Character>();
 	}
 
 	void FixedUpdate()
@@ -39,7 +42,8 @@ public class CharacterMovement : MonoBehaviour
 		}
 		
 		var currentVel = _rigidBody.velocity;
-		currentVel.x = inputs.horizontal * _speed;
+		var slowDownFac = (1f - (_character.Characters.Count - 1f) * _character.SpeedDown);
+		currentVel.x = inputs.horizontal * _speed * slowDownFac;
 
 		if (inputs.jump) {
 			if (!_lastInputs.jump && Time.time - _lastGroundTime < _coyoteTime) {
