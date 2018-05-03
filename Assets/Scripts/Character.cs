@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -9,12 +10,17 @@ public class Character : MonoBehaviour
 	
 	[SerializeField] GameObject[] _sliceGroups;
 	[SerializeField] Color[]      _colors;
+	[SerializeField] AudioClip _explodeSound;
+	[SerializeField] AudioClip _implodeSound;
 	
 	List<Character> _characters = new List<Character>();
 	[SerializeField] float _invincibilityStart;
-
+	
 	public void Add(Character charater)
 	{
+		Debug.Log("Implode ?");
+		SoundManager.instance.Play(_implodeSound, transform.position);
+		
 		if (_characters.Contains(charater)) {
 			Debug.LogError("Player " + charater.PrimaryCharacterIndex + "already contained in character " + name);
 		}
@@ -26,6 +32,8 @@ public class Character : MonoBehaviour
 
 	public void Boom()
 	{
+		Debug.Log("Explode");
+		SoundManager.instance.Play(_explodeSound, transform.position);
 		var chars = _characters.ToArray();
 		var pos = transform.position;
 		for (var index = 0; index < chars.Length; index++) {

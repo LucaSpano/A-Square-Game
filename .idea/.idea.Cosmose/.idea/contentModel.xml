@@ -8,6 +8,7 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="InputPlayerAssignation.cs" t="Include" />
+        <e p="MusicManger.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
             <e p="JetBrains" t="Include">
@@ -111,6 +112,8 @@
           <e p="CharacterInput.cs" t="Include" />
           <e p="CharacterMovement.cs" t="Include" />
         </e>
+        <e p="SoundManager.cs" t="Include" />
+        <e p="SoundPlayer.cs" t="Include" />
       </e>
       <e p="Cosmose.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />

@@ -9,6 +9,9 @@ public class CharacterMovement : MonoBehaviour
 	[SerializeField] float _jumpStartVel = 8f;
 	[SerializeField] float _jumpBoostAccel = 1f;
 	[SerializeField] float _dashVel = 12f;
+
+	[SerializeField] AudioClip _jumpSound;
+	[SerializeField] AudioClip _landingSound;
 	
 	CharacterInput _inputs;
 	Rigidbody2D _rigidBody;
@@ -40,6 +43,7 @@ public class CharacterMovement : MonoBehaviour
 
 		if (inputs.jump) {
 			if (!_lastInputs.jump && Time.time - _lastGroundTime < _coyoteTime) {
+				SoundManager.instance.Play(_jumpSound, transform.position, 1f, 1f);
 				currentVel.y = _jumpStartVel;
 			}
 			
@@ -78,6 +82,10 @@ public class CharacterMovement : MonoBehaviour
 
 	void OnCollisionStay2D()
 	{
+		if (Time.time - _lastGroundTime > 0.1f) {
+			SoundManager.instance.Play(_landingSound, transform.position, 1f, 1f);
+		}
+		
 		_lastGroundTime = Time.time;
 	}
 }
