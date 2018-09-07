@@ -173,7 +173,7 @@ public class Character : MonoBehaviour
 	{
 		var character = other.gameObject.GetComponent<Character>();
 		
-		if (character && other.relativeVelocity.y > 0f && !IsInvincible() && !character.IsInvincible()) {
+		if (character && other.transform.position.y - transform.position.y < 0.2f && !IsInvincible() && !character.IsInvincible()) {
 			if (character.Characters.Count == 1) {
 				SoundManager.instance.Play(_implodeSound, transform.position);
 				Add(character);
