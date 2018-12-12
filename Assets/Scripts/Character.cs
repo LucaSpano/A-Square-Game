@@ -47,7 +47,7 @@ public class Character : MonoBehaviour
 
 		if (Characters.Count >= 4) {
 			StopAllCoroutines();
-			StartCoroutine(WaitAndBoom(10f));
+			StartCoroutine(WaitAndBoom(5f));
 		}
 	}
 
@@ -155,7 +155,6 @@ public class Character : MonoBehaviour
 
 	void TriggerInvincibilityFrame()
 	{
-		Debug.Log("Trigger for " + name);
 		_invincibilityStart = Time.time;
 	}
 	
@@ -173,18 +172,31 @@ public class Character : MonoBehaviour
 	{
 		var character = other.gameObject.GetComponent<Character>();
 		
-		if (character && other.transform.position.y - transform.position.y < 0.2f && !IsInvincible() && !character.IsInvincible()) {
-			if (character.Characters.Count == 1) {
-				SoundManager.instance.Play(_implodeSound, transform.position);
-				Add(character);
-				character.gameObject.SetActive(false);
-			}
-			else {
-				character.Boom();
+		if (character && !IsInvincible() && !character.IsInvincible()) {
+			if (HotAngle(transform.position, other.transform.position)) {
+				if (character.Characters.Count == 1) {
+					SoundManager.instance.Play(_implodeSound, transform.position);
+					Add(character);
+					character.gameObject.SetActive(false);
+				}
+				else {
+					character.Boom();
+				}
 			}
 		}
 	}
-	
+
+	bool HotAngle(Vector3 a, Vector3 b)
+	{
+		var delta = a - b;
+		if (delta.y < 0f) {
+			return false;
+		}		
+		var ratio = delta.x / delta.y;
+		
+		return ratio < 1f;
+	}
+
 	IEnumerator WaitAndBoom(float f)
 	{
 		yield return new WaitForSeconds(f);
